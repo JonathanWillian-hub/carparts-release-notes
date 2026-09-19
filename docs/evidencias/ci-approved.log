@@ -1,0 +1,25 @@
+EXECUÇÃO APROVADA · 19/09/2026 · Node.js 22
+
+> npm run check
+
+Lint aprovado: sintaxe válida em todos os arquivos .mjs.
+tests 4
+pass 4
+fail 0
+
+PASS rel-001
+PASS rel-002
+PASS rel-003
+PASS rel-004
+PASS rel-005
+PASS rel-006
+PASS rel-007
+PASS rel-008
+PASS rel-009
+PASS rel-010
+PASS rel-011
+PASS rel-012
+Provedor: fixture
+Taxa de aprovação: 100.0% (12/12); mínimo 90.0%
+Custo estimado desta execução: US$ 0.0000
+EXIT CODE: 0

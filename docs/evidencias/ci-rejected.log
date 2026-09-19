@@ -1,0 +1,22 @@
+EXECUÇÃO REPROVADA DE PROPÓSITO · 19/09/2026 · Node.js 22
+
+> EVAL_MIN=1.01 npm run eval
+
+PASS rel-001
+PASS rel-002
+PASS rel-003
+PASS rel-004
+PASS rel-005
+PASS rel-006
+PASS rel-007
+PASS rel-008
+PASS rel-009
+PASS rel-010
+PASS rel-011
+PASS rel-012
+Provedor: fixture
+Taxa de aprovação: 100.0% (12/12); mínimo 101.0%
+Custo estimado desta execução: US$ 0.0000
+EXIT CODE: 1
+
+Motivo didático: o limiar impossível de 101% comprova que o quality gate realmente barra a esteira. O workflow manual `.github/workflows/evidencia-reprovada.yml` reproduz esta falha no GitHub Actions.

@@ -1,0 +1,16 @@
+{
+  "name": "carparts-release-notes",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "SAP1-DEVOPS: promoção do protótipo Opal da Carparts para uma esteira CI/CD.",
+  "scripts": {
+    "lint": "node scripts/lint.mjs",
+    "test": "node --test",
+    "eval": "node scripts/eval-prompt.mjs",
+    "check": "npm run lint && npm test && npm run eval"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
