@@ -1,0 +1,23 @@
+name: evidencia-gate-reprovado
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  reprovar-de-proposito:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Quality gate com limiar impossível (evidência didática)
+        env:
+          EVAL_PROVIDER: fixture
+          EVAL_MIN: "1.01"
+        run: npm run eval
