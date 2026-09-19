@@ -1,23 +1,13 @@
-name: bootstrap-project
+name: bootstrap-concluido
 
 on:
-  push:
-    branches: [main]
+  workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
-  unpack:
+  status:
     runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@v5
-      - name: Publicar estrutura completa
-        run: |
-          unzip -o carparts-release-notes-bootstrap.zip -x '.github/workflows/*'
-          rm carparts-release-notes-bootstrap.zip
-          git config user.name "Jonathan Willian"
-          git config user.email "JonathanWillian-hub@users.noreply.github.com"
-          git add -A
-          git commit -m "feat: publicar entrega completa SAP1-DEVOPS Carparts"
-          git push
+      - run: echo "Bootstrap concluído; projeto já publicado."
