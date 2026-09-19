@@ -2,12 +2,16 @@
 
 Entrega completa da atividade prática da Aula 07: protótipo no Google Opal promovido para código, versionamento e quality gates de CI/CD.
 
+## Mini-app publicado
+
+[Executar Release Notes Carparts no Google Opal](https://opal.google/app/1ssE1RQlwtGwnoK6jhpGNkd7Nx6sGuEpZ)
+
 ## Evidências por entregável
 
 | Entregável | Evidência no repositório |
 |---|---|
 | E1 · Mapa de oportunidades | [`docs/e1-mapa-oportunidades.md`](docs/e1-mapa-oportunidades.md) |
-| E2 · Opal publicada | [`docs/opal/release-notes.md`](docs/opal/release-notes.md), entradas e pasta de evidências |
+| E2 · Opal publicada | [`docs/opal/release-notes.md`](docs/opal/release-notes.md), [`docs/opal/evidencias.md`](docs/opal/evidencias.md) e [entradas de referência](docs/opal/entradas-referencia.md) |
 | E3 · Ficha e governança | [`docs/opal/release-notes.md`](docs/opal/release-notes.md) |
 | E4 · Ponte AI Studio | [`prompts/release-notes.v3.md`](prompts/release-notes.v3.md), [`src/release-notes.mjs`](src/release-notes.mjs) e [`docs/e4-ai-studio.md`](docs/e4-ai-studio.md) |
 | E5 · Quality gate | [`.github/workflows/ci.yml`](.github/workflows/ci.yml), `Jenkinsfile`, `eval/golden.jsonl` e logs |
