@@ -1,0 +1,65 @@
+name: ci-release-notes
+
+on:
+  pull_request:
+    paths:
+      - "prompts/**"
+      - "eval/**"
+      - "src/**"
+      - "scripts/**"
+      - "test/**"
+      - "package*.json"
+      - ".github/workflows/**"
+  push:
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      eval_min:
+        description: "Limiar do quality gate"
+        required: true
+        default: "0.90"
+      provider:
+        description: "fixture (sem custo) ou gemini (usa segredo)"
+        required: true
+        default: "fixture"
+
+permissions:
+  contents: read
+
+jobs:
+  qualidade:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run lint
+      - run: npm test
+      - name: Scan de segredos
+        uses: gitleaks/gitleaks-action@v3
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  avaliacao-prompt:
+    needs: qualidade
+    runs-on: ubuntu-24.04
+    environment: ia-avaliacao
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Quality gate do prompt
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GEMINI_MODEL: gemini-2.5-flash
+          EVAL_PROVIDER: ${{ inputs.provider || 'fixture' }}
+          EVAL_MIN: ${{ inputs.eval_min || '0.90' }}
+        run: npm run eval
